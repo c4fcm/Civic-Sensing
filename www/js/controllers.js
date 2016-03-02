@@ -17,8 +17,14 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SensorDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('SensorDetailCtrl', function($scope, $stateParams, $http, Sensors) {
+  $scope.sensor = Sensors.get($stateParams.sensorId);
+
+  $http.get("https://api.smartcitizen.me/v0/devices/" + $scope.sensor.id)
+    .success(function(response){
+      console.log(response);
+      $scope.sensor.response = response;
+    });
 })
 
 .controller('AccountCtrl', function($scope) {
