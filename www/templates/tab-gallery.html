@@ -1,0 +1,27 @@
+<ion-view view-title="Gallery">
+  <ion-content class="padding center">
+    <ion-list class="gallery-images">
+      <ion-item ng-repeat="image in images">
+        <img src="{{image.URI}}">
+        <div class="image-filter CO" style="opacity: {{image.data.sensors[5].value / 325}}"></div>
+        <div class="image-info">
+          <p>
+            NO2: {{image.data.sensors[4].value}} {{image.data.sensors[4].unit}}
+          </p>
+          <p>
+            CO: {{image.data.sensors[5].value}} {{image.data.sensors[5].unit}}
+          </p>
+          <p>
+            Sound: {{image.data.sensors[7].value}} {{image.data.sensors[7].unit}}
+          </p>
+          <p>
+            Light: {{image.data.sensors[0].value}} {{image.data.sensors[0].unit}}
+          </p>
+          <p>
+            Humidity: {{image.data.sensors[2].value}} {{image.data.sensors[2].unit}}
+          </p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

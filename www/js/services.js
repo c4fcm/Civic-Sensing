@@ -7,27 +7,49 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var sensors = [{
-    id: 1684,
-    name: 'Civic Media Table',
-    face: 'img/ben.png'
+    id: 3146,
+    name: 'Civic Media Table'
   }];
 
   return {
-    newData: {},
 
-    all: function() {
+    all: function(){
       return sensors;
     },
-    remove: function(sensor) {
+
+    remove: function(sensor){
       sensors.splice(sensors.indexOf(sensor), 1);
     },
-    get: function(sensorId) {
+
+    find: function(sensorId){
       for (var i = 0; i < sensors.length; i++) {
         if (sensors[i].id === parseInt(sensorId)) {
           return sensors[i];
         }
       }
       return null;
+    },
+
+    getLatestReadings: function(sensorId, storageObject){
+      $http.get("https://api.smartcitizen.me/devices/" + sensorId)
+        .success(function(response){
+          storageObject.response = response;
+          console.log(storageObject);
+        });
     }
   };
+})
+
+.factory('Gallery', function($http) {
+  localStorage['images'] = localStorage['images'] || '[]';
+
+  return {
+    images: JSON.parse(localStorage['images']),
+
+    addImage: function(image){
+      this.images.push(image);
+      localStorage['images'] = JSON.stringify(this.images);
+    }
+  }
+
 });

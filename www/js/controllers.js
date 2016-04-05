@@ -1,34 +1,57 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('HomeCtrl', function($scope, $http, $state, Gallery) {
+  $scope.currentImage = {};
+
+  $scope.takePicture = function(){
+    
+    var onSuccess = function(imageURI){
+      $scope.currentImage.URI = imageURI;
+      $scope.tagImage(3146, $scope.currentImage);
+    };
+
+    var onError = function(){
+      console.log("Image capture failed.");
+    };
+
+    navigator.camera.getPicture(onSuccess, onError, {
+      limit: 1,
+      quality: 75,
+      destinationType: navigator.camera.DestinationType.FILE_URI,
+      correctOrientation: true
+    });
+  };
+
+  $scope.tagImage = function(sensorId, image){
+    $http.get("https://api.smartcitizen.me/devices/" + sensorId)
+      .success(function(response){
+        image.data = response.data;
+        Gallery.addImage(image);
+        $state.go('tab.gallery');
+      });
+  };
+})
 
 .controller('SensorsCtrl', function($scope, Sensors) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   $scope.sensors = Sensors.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
 })
 
 .controller('SensorDetailCtrl', function($scope, $stateParams, $http, Sensors) {
-  $scope.sensor = Sensors.get($stateParams.sensorId);
+  $scope.sensor = Sensors.find($stateParams.sensorId);
+  Sensors.getLatestReadings($scope.sensor.id, $scope.sensor);
 
-  $http.get("https://api.smartcitizen.me/v0/devices/" + $scope.sensor.id)
-    .success(function(response){
-      console.log(response);
-      $scope.sensor.response = response;
-    });
+  $scope.getSensorId = function(sensorName){
+    for(i=0;i<$scope.sensor.response.data.sensors.length;i++){
+      console.log($scope.sensor.response.data.sensors[i][name] == sensorName);
+      return $scope.sensor.response.data.sensors[i][name] == sensorName;
+    }
+  };
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('GalleryCtrl', function($scope, Gallery) {
+  $scope.images = Gallery.images.reverse();
+  console.log($scope.images);
+})
+
+.controller('GalleryDetailCtrl', function($scope){
 });
