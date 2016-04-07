@@ -8,7 +8,32 @@ html, body {
   text-align: center;
 }
 
-.gallery-images {
+h2.invite {
+  margin: 50px 0;
+  font-weight: normal;
+}
+
+.gallery-images .list {
+  position: relative;
+}
+
+.gallery-images .item {
+  background: whitesmoke;
+  padding: 30px;
+}
+
+.gallery-images .item-content {
+  padding: 20px;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+}
+
+.gallery-images .item:nth-child(even) .item-content{
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+
+.gallery-images .image-container {
   position: relative;
 }
 
@@ -18,10 +43,11 @@ html, body {
 }
 
 .image-filter.CO {
+  top: 0;
+  left: 0;
   position: absolute;
-  left: 16px;
-  top: 16px;
   background: url("http://www.acarlarvagon.com.tr/public/img/clo2.png");
+  background-size: cover;
   background-position: 20% 20%;
   z-index: 10;
   width: 100%;

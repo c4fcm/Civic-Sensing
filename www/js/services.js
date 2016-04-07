@@ -49,6 +49,10 @@ angular.module('starter.services', [])
     addImage: function(image){
       this.images.push(image);
       localStorage['images'] = JSON.stringify(this.images);
+    },
+
+    removeImage: function(image){
+      this.images.splice(this.images.indexOf(image), 1);
     }
   }
 

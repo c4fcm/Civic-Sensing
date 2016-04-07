@@ -1,24 +1,32 @@
 <ion-view view-title="Gallery">
   <ion-content class="padding center">
     <ion-list class="gallery-images">
-      <ion-item ng-repeat="image in images">
-        <img src="{{image.URI}}">
-        <div class="image-filter CO" style="opacity: {{image.data.sensors[5].value / 325}}"></div>
+      <ion-item ng-repeat="image in images track by $index">
+        <ion-option-button class="button-assertive" ng-click="remove(image)">
+          Delete
+        </ion-option-button>
+        <div class="image-container">
+          <img src="{{image.URI}}">
+          <div class="image-filter CO" style="opacity: {{image.data.sensors[5].value / 325}}"></div>
+        </div>
         <div class="image-info">
           <p>
-            NO2: {{image.data.sensors[4].value}} {{image.data.sensors[4].unit}}
+            <icon class="ion-erlenmeyer-flask"> NO<sub>2</sub>: {{image.data.sensors[4].value}} {{image.data.sensors[4].unit}}
           </p>
           <p>
-            CO: {{image.data.sensors[5].value}} {{image.data.sensors[5].unit}}
+            <icon class="ion-ios-cloudy-outline"> CO: {{image.data.sensors[5].value}} {{image.data.sensors[5].unit}}
           </p>
           <p>
-            Sound: {{image.data.sensors[7].value}} {{image.data.sensors[7].unit}}
+            <icon class="ion-volume-high"> Sound: {{image.data.sensors[7].value}} {{image.data.sensors[7].unit}}
           </p>
           <p>
-            Light: {{image.data.sensors[0].value}} {{image.data.sensors[0].unit}}
+            <icon class="ion-ios-sunny-outline"> Light: {{image.data.sensors[0].value}} {{image.data.sensors[0].unit}}
           </p>
           <p>
-            Humidity: {{image.data.sensors[2].value}} {{image.data.sensors[2].unit}}
+            <icon class="ion-ios-rainy-outline"> Humidity: {{image.data.sensors[2].value}} {{image.data.sensors[2].unit}}
+          </p>
+          <p>
+            <icon class="ion-ios-calendar-outline"> Date: {{ image.timestamp | date : 'MMM dd, yyyy'}}
           </p>
         </div>
       </ion-item>

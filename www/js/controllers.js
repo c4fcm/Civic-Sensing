@@ -6,8 +6,10 @@ angular.module('starter.controllers', [])
   $scope.takePicture = function(){
     
     var onSuccess = function(imageURI){
-      $scope.currentImage.URI = imageURI;
-      $scope.tagImage(3146, $scope.currentImage);
+      var image = {
+        URI: imageURI
+      };
+      $scope.tagImage(3146, image);
     };
 
     var onError = function(){
@@ -18,13 +20,15 @@ angular.module('starter.controllers', [])
       limit: 1,
       quality: 75,
       destinationType: navigator.camera.DestinationType.FILE_URI,
-      correctOrientation: true
+      correctOrientation: true,
+      cameraDirection: 1
     });
   };
 
   $scope.tagImage = function(sensorId, image){
     $http.get("https://api.smartcitizen.me/devices/" + sensorId)
       .success(function(response){
+        image.timestamp = new Date().getTime();
         image.data = response.data;
         Gallery.addImage(image);
         $state.go('tab.gallery');
@@ -48,9 +52,14 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('GalleryCtrl', function($scope, Gallery) {
+.controller('GalleryCtrl', function($scope, Gallery, $filter) {
   $scope.images = Gallery.images.reverse();
   console.log($scope.images);
+
+  $scope.remove = function(image){
+    Gallery.removeImage(image);
+    $scope.images = Gallery.images.reverse();
+  }
 })
 
 .controller('GalleryDetailCtrl', function($scope){
