@@ -1,0 +1,53 @@
+<ion-view hide-nav-bar="true">
+  <ion-content id="editor">
+    <div class="bar bar-header">
+      <button class="button button-icon ion-android-arrow-back back"> EDIT</button>
+      <button class="button button-icon ion-android-arrow-forward next"></button>
+    </div>
+    <div class="image-container">
+      <img src="../img/natalie.jpg">
+    </div>
+
+    <div id="controls">
+      <ul id="filters">
+        <li ng-click="applyFilter('co')">
+          <div class="preview co">
+            <img src="../img/natalie.jpg">
+            <div class="filter co"></div>
+          </div>
+          <span>CO</span>
+          <icon class="ion-ios-cloudy-outline xl"></icon>
+        </li>
+
+        <li ng-click="applyFilter('sound')" class="active">
+          <div class="preview sound">
+            <img src="../img/natalie.jpg">
+            <div class="filter co"></div>
+          </div>
+          <span>Sound</span>
+          <icon class="icon ion-volume-high"></icon>
+        </li>
+
+        <li ng-click="applyFilter('temp')">
+          <div class="preview temp">
+            <img src="../img/natalie.jpg">
+            <div class="filter sound"></div>
+          </div>
+          <span>Temp</span>
+          <icon class="icon ion-thermometer"></icon>
+        </li>
+
+        <li ng-click="applyFilter('humidity')">
+          <div class="preview humidity">
+            <img src="../img/natalie.jpg">
+            <div class="filter humidity"></div>
+          </div>
+          <span>Humidity</span>
+          <icon class="icon ion-ios-rainy-outline xl"></icon>
+        </li>     
+      </ul>
+    </div>  
+  </ion-content>
+</ion-view>
+
+

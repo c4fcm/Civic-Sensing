@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('GalleryCtrl', function($scope, Gallery, $filter) {
+.controller('ImagesCtrl', function($scope, Gallery, $filter) {
   $scope.images = Gallery.images.reverse();
   console.log($scope.images);
 
@@ -62,5 +62,6 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('GalleryDetailCtrl', function($scope){
+.controller('EditCtrl', function($scope){
+
 });

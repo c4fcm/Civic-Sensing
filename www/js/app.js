@@ -69,17 +69,23 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       }
     })
 
-  .state('tab.gallery', {
-    url: '/gallery',
+  .state('tab.images', {
+    url: '/images',
     views: {
-      'tab-gallery': {
-        templateUrl: 'templates/tab-gallery.html',
-        controller: 'GalleryCtrl'
+      'tab-images': {
+        templateUrl: 'templates/tab-images.html',
+        controller: 'ImagesCtrl'
       }
     }
+  })
+
+  .state('edit', {
+    url: '/edit',
+    templateUrl: 'templates/edit.html',
+    controller: 'EditCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/home');
 
 });
