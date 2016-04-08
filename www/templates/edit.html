@@ -6,6 +6,11 @@
     </div>
     <div class="image-container">
       <img src="../img/natalie.jpg">
+      <div class="filter sound">
+        <div id="sound-bars">
+          <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
+        </div>
+      </div>
     </div>
 
     <div id="controls">
@@ -22,7 +27,9 @@
         <li ng-click="applyFilter('sound')" class="active">
           <div class="preview sound">
             <img src="../img/natalie.jpg">
-            <div class="filter co"></div>
+            <div class="filter sound">
+              <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
+            </div>
           </div>
           <span>Sound</span>
           <icon class="icon ion-volume-high"></icon>
@@ -31,7 +38,7 @@
         <li ng-click="applyFilter('temp')">
           <div class="preview temp">
             <img src="../img/natalie.jpg">
-            <div class="filter sound"></div>
+            <div class="filter"></div>
           </div>
           <span>Temp</span>
           <icon class="icon ion-thermometer"></icon>
@@ -40,7 +47,7 @@
         <li ng-click="applyFilter('humidity')">
           <div class="preview humidity">
             <img src="../img/natalie.jpg">
-            <div class="filter humidity"></div>
+            <div class="filter"></div>
           </div>
           <span>Humidity</span>
           <icon class="icon ion-ios-rainy-outline xl"></icon>

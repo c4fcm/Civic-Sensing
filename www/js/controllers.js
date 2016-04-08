@@ -63,5 +63,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('EditCtrl', function($scope){
+  $scope.soundBars = new Array(18);
 
 });
