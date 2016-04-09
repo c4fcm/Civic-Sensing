@@ -4,53 +4,78 @@
       <button class="button button-icon ion-android-arrow-back back"> EDIT</button>
       <button class="button button-icon ion-android-arrow-forward next"></button>
     </div>
-    <div class="image-container">
-      <img src="../img/natalie.jpg">
-      <div class="filter sound">
+    <div class="main image-container">
+      <img src="{{image.URI}}">
+
+<!--  CO -->
+      <div class="filter co" ng-class="{selected: image.activeFilter == 'co'}">
+      </div>
+
+<!--  Sound -->
+      <div class="filter sound" style="height: {{image.data.sensors[7].value / 150 * 100}}%;" ng-class="{selected: image.activeFilter == 'sound'}">
         <div id="sound-bars">
           <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
         </div>
       </div>
+
+<!--  Temp -->
+      <div class="filter temo" ng-class="{selected: image.activeFilter == 'temp'}"></div>
+
+<!--  Humidity -->
+      <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}"></div>
     </div>
 
     <div id="controls">
       <ul id="filters">
-        <li ng-click="applyFilter('co')">
-          <div class="preview co">
-            <img src="../img/natalie.jpg">
-            <div class="filter co"></div>
+
+<!--    CO filter  -->
+        <li ng-click="applyFilter('co')" ng-class="{selected: image.activeFilter == 'co'}">
+          <div class="preview image-container">
+            <img src="{{image.URI}}">
+            <div class="filter co" ></div>
           </div>
           <span>CO</span>
           <icon class="ion-ios-cloudy-outline xl"></icon>
+          <span class="reading">{{image.data.sensors[5].value | number: 0}}</span>
+          <p class="unit">{{image.data.sensors[5].unit}}</p>
         </li>
 
-        <li ng-click="applyFilter('sound')" class="active">
-          <div class="preview sound">
-            <img src="../img/natalie.jpg">
-            <div class="filter sound">
+<!--    Sound control  -->
+        <li ng-click="applyFilter('sound')" ng-class="{selected: image.activeFilter == 'sound'}">
+          <div class="preview image-container sound">
+            <img src="{{image.URI}}">
+            <div class="filter sound" style="height: {{image.data.sensors[7].value / 150 * 100}}%;">
               <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
             </div>
           </div>
           <span>Sound</span>
           <icon class="icon ion-volume-high"></icon>
+          <span class="reading">{{image.data.sensors[7].value | number: 0}}</span>
+          <p class="unit">{{image.data.sensors[7].unit}}</p>
         </li>
 
-        <li ng-click="applyFilter('temp')">
-          <div class="preview temp">
-            <img src="../img/natalie.jpg">
-            <div class="filter"></div>
+<!--    Temp filter  -->
+        <li ng-click="applyFilter('temp')" ng-class="{selected: image.activeFilter == 'temp'}">
+          <div class="preview image-container">
+            <img src="{{image.URI}}">
+            <div class="filter temp"></div>
           </div>
           <span>Temp</span>
           <icon class="icon ion-thermometer"></icon>
+          <span class="reading">{{image.data.sensors[3].value | number: 0}}</span>
+          <p class="unit">{{image.data.sensors[3].unit}}</p>
         </li>
 
-        <li ng-click="applyFilter('humidity')">
-          <div class="preview humidity">
-            <img src="../img/natalie.jpg">
-            <div class="filter"></div>
+<!--    Humidity filter  -->
+        <li ng-click="applyFilter('humidity')" ng-class="{selected: image.activeFilter == 'humidity'}">
+          <div class="preview image-container">
+            <img src="{{image.URI}}">
+            <div class="filter humidity"></div>
           </div>
           <span>Humidity</span>
           <icon class="icon ion-ios-rainy-outline xl"></icon>
+          <span class="reading">{{image.data.sensors[2].value | number: 0}}</span>
+          <p class="unit">{{image.data.sensors[2].unit}}</p>
         </li>     
       </ul>
     </div>  

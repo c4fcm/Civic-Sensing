@@ -42,9 +42,11 @@ angular.module('starter.services', [])
 
 .factory('Gallery', function($http) {
   localStorage['images'] = localStorage['images'] || '[]';
+  var images = JSON.parse(localStorage['images'])
 
   return {
-    images: JSON.parse(localStorage['images']),
+    images: images,
+    currentImage: images[0], // Set to blank object
 
     addImage: function(image){
       this.images.push(image);

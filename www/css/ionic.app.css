@@ -26,6 +26,7 @@ $dark:                            #444 !default;
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=2.0.1");
@@ -9731,6 +9732,12 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+html, body {
+  font-family: 'Roboto', sans-serif; }
+
+.bar-header {
+  z-index: 1000; }
+
 #editor, #editor .bar-header {
   background: #25272a; }
 
@@ -9742,27 +9749,50 @@ a.button {
 #editor .bar-header .next {
   color: #4090db; }
 
+#editor .main.image-container {
+  height: 400px; }
+
 #editor .image-container {
   width: 100%;
-  height: 440px;
   overflow: hidden;
   margin: 0 auto;
   position: relative; }
   #editor .image-container img {
-    height: 100%;
+    height: 110%;
     position: absolute;
-    left: -20%; }
+    left: 0;
+    right: 0;
+    margin: 0 auto; }
   #editor .image-container .filter {
     position: absolute;
-    top: 0;
-    height: 440px;
     width: 100%;
-    z-index: 1000; }
+    height: 100%;
+    z-index: 10;
+    bottom: 0;
+    display: none;
+    overflow: hidden; }
+    #editor .image-container .filter.selected {
+      display: block; }
+    #editor .image-container .filter.co {
+      background: url("../img/co3.png");
+      background-size: 40%;
+      background-repeat: repeat; }
+    #editor .image-container .filter.humidity {
+      background: url("../img/humidity.png");
+      background-size: cover;
+      background-repeat: repeat; }
+    #editor .image-container .filter.temp {
+      background: red;
+      opacity: .2; }
+
+#editor #filters .image-container .filter {
+  display: block; }
 
 #editor #controls {
   background: #161819;
   margin-top: 50px;
-  height: 400px;
+  height: 300px;
+  overflow: visible;
   color: white; }
   #editor #controls #filters {
     height: 50px;
@@ -9773,9 +9803,11 @@ a.button {
       display: inline-block;
       vertical-align: top;
       margin: 0;
-      padding: 30px 10px 20px 10px;
+      padding: 30px 10px 12px 10px;
       text-align: center;
       text-transform: uppercase; }
+      #editor #controls #filters li.selected {
+        border-bottom: 2px solid #4090db; }
       #editor #controls #filters li .preview {
         width: 65px;
         height: 65px;
@@ -9784,23 +9816,20 @@ a.button {
         overflow: hidden;
         position: relative;
         margin: 0 auto 10px auto; }
-        #editor #controls #filters li .preview img {
-          position: absolute;
-          height: 100%;
-          left: -20%; }
-        #editor #controls #filters li .preview .filter.co {
-          background: url("");
-          opacity: 30%; }
-        #editor #controls #filters li .preview .filter.temp {
-          background: red;
-          opacity: 10%; }
+        #editor #controls #filters li .preview .filter {
+          height: 65px; }
       #editor #controls #filters li icon {
         display: block;
         font-size: 1.2em; }
         #editor #controls #filters li icon.xl {
           font-size: 1.6em; }
-      #editor #controls #filters li.active {
-        border-bottom: 2px solid #4090db; }
+      #editor #controls #filters li .reading {
+        color: #9fc7ed;
+        font-weight: bold;
+        font-size: 1.3em; }
+      #editor #controls #filters li .unit {
+        font-size: .8em;
+        color: #4090db; }
 
 .sound #sound-bars {
   position: absolute;
@@ -9810,7 +9839,7 @@ a.button {
   height: 100%; }
 
 .sound .sound-bar {
-  background: #666;
+  background: #4090db;
   bottom: 0;
   height: 10px;
   position: absolute;
@@ -9823,7 +9852,7 @@ a.button {
     height: 3px; }
   100% {
     opacity: 1;
-    height: 15%; } }
+    height: 80%; } }
 
 @keyframes sound-high {
   0% {
@@ -9831,22 +9860,22 @@ a.button {
     height: 3px; }
   100% {
     opacity: 1;
-    height: 30%; } }
+    height: 100%; } }
 
 .sound .sound-bar:nth-child(4), .sound .sound-bar:nth-child(7), .sound .sound-bar:nth-child(9) {
   animation-name: sound-high; }
 
 .sound .sound-bar:nth-child(1) {
   left: 6%;
-  animation-duration: 429ms; }
+  animation-duration: 466ms; }
 
 .sound .sound-bar:nth-child(2) {
   left: 12%;
-  animation-duration: 417ms; }
+  animation-duration: 394ms; }
 
 .sound .sound-bar:nth-child(3) {
   left: 18%;
-  animation-duration: 455ms; }
+  animation-duration: 434ms; }
 
 .sound .sound-bar:nth-child(4) {
   left: 24%;
@@ -9854,60 +9883,60 @@ a.button {
 
 .sound .sound-bar:nth-child(5) {
   left: 30%;
-  animation-duration: 468ms; }
+  animation-duration: 404ms; }
 
 .sound .sound-bar:nth-child(6) {
   left: 36%;
-  animation-duration: 430ms; }
+  animation-duration: 412ms; }
 
 .sound .sound-bar:nth-child(7) {
   left: 42%;
-  animation-duration: 460ms; }
+  animation-duration: 424ms; }
 
 .sound .sound-bar:nth-child(8) {
   left: 48%;
-  animation-duration: 397ms; }
+  animation-duration: 433ms; }
 
 .sound .sound-bar:nth-child(9) {
   left: 54%;
-  animation-duration: 445ms; }
+  animation-duration: 393ms; }
 
 .sound .sound-bar:nth-child(10) {
   left: 60%;
-  animation-duration: 391ms; }
+  animation-duration: 439ms; }
 
 .sound .sound-bar:nth-child(11) {
   left: 66%;
-  animation-duration: 389ms; }
+  animation-duration: 457ms; }
 
 .sound .sound-bar:nth-child(12) {
   left: 72%;
-  animation-duration: 410ms; }
+  animation-duration: 437ms; }
 
 .sound .sound-bar:nth-child(13) {
   left: 78%;
-  animation-duration: 465ms; }
+  animation-duration: 474ms; }
 
 .sound .sound-bar:nth-child(14) {
   left: 84%;
-  animation-duration: 432ms; }
+  animation-duration: 440ms; }
 
 .sound .sound-bar:nth-child(15) {
   left: 90%;
-  animation-duration: 384ms; }
+  animation-duration: 460ms; }
 
 .sound .sound-bar:nth-child(16) {
   left: 96%;
-  animation-duration: 458ms; }
+  animation-duration: 479ms; }
 
 .sound .sound-bar:nth-child(17) {
   left: 102%;
-  animation-duration: 392ms; }
+  animation-duration: 430ms; }
 
 .sound .sound-bar:nth-child(18) {
   left: 108%;
-  animation-duration: 381ms; }
+  animation-duration: 396ms; }
 
 .sound .sound-bar:nth-child(19) {
   left: 114%;
-  animation-duration: 476ms; }
+  animation-duration: 474ms; }

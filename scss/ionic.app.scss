@@ -20,7 +20,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+$accent-blue: #4090db;
+$accent-light: #9fc7ed;
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.bar-header {
+  z-index: 1000;
+}
 
 #editor, #editor .bar-header {
   background: #25272a;
@@ -37,37 +48,70 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
 
     .next {
-      color: #4090db;
+      color: $accent-blue;
     }
+  }
+
+  .main.image-container {
+    height: 400px;
   }
 
   .image-container {
     width: 100%;
-    height: 440px;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
 
     img {
-      height: 100%;
+      height: 110%;
       position: absolute;
-      left: -20%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
 
     .filter {
       position: absolute;
-      top: 0;
-      height: 440px;
       width: 100%;
-      z-index: 1000;
-      &.sound{}
+      height: 100%;
+      z-index: 10;
+      bottom: 0;
+      display: none;
+      overflow: hidden;
+
+      &.selected {
+        display: block;
+      }
+      
+      &.co {
+        background: url("../img/co3.png");
+        background-size: 40%;
+        background-repeat: repeat;
+      }
+
+      &.humidity {
+        background: url("../img/humidity.png");
+        background-size: cover;
+        background-repeat: repeat;
+      }
+
+      &.temp {
+        background: red;
+        opacity: .2;
+      }
     }
   }
+
+  #filters .image-container .filter {
+    display: block;
+  }
+
 
   #controls {
     background: #161819;
     margin-top: 50px;
-    height: 400px;
+    height: 300px;
+    overflow: visible;
     color: white;
 
     #filters {
@@ -80,9 +124,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         display: inline-block;
         vertical-align: top;
         margin: 0;
-        padding: 30px 10px 20px 10px;
+        padding: 30px 10px 12px 10px;
         text-align: center;
         text-transform: uppercase;
+
+        &.selected {
+          border-bottom: 2px solid $accent-blue;
+        }
 
         .preview {
           width: 65px;
@@ -93,25 +141,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
           position: relative;
           margin: 0 auto 10px auto;
 
-          img {
-            position: absolute;
-            height: 100%;
-            left: -20%;
-          }
-
           .filter {
-            &.co {
-              background: url('');
-              opacity: 30%;
-            }
-
-            &.temp {
-              background: red;
-              opacity: 10%;
-            }
-
-            &.sound {
-            }
+            height: 65px;
           }
         }
 
@@ -124,8 +155,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
           }
         }
 
-        &.active {
-          border-bottom: 2px solid #4090db;
+        .reading {
+          color: $accent-light;
+          font-weight: bold;
+          font-size: 1.3em;
+        }
+
+        .unit {
+          font-size: .8em;
+          color: $accent-blue;
         }
       }
     }
@@ -143,7 +181,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   }
 
   .sound-bar {
-    background: #666;
+    background: $accent-blue;
     bottom: 0;
     height: 10px;
     position: absolute;
@@ -158,7 +196,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
     100% {
       opacity: 1;       
-      height: 15%;        
+      height: 80%;        
     }
   }
 
@@ -169,7 +207,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
     100% {
       opacity: 1;       
-      height: 30%;        
+      height: 100%;        
     }
   }
 

@@ -31,7 +31,8 @@ angular.module('starter.controllers', [])
         image.timestamp = new Date().getTime();
         image.data = response.data;
         Gallery.addImage(image);
-        $state.go('tab.gallery');
+        Gallery.currentImage = image;
+        $state.go('edit');
       });
   };
 })
@@ -62,7 +63,14 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EditCtrl', function($scope){
+.controller('EditCtrl', function($scope, Gallery, $http){
   $scope.soundBars = new Array(18);
+  $scope.image = Gallery.images[0]; // Change!
+
+  $scope.image.activeFilter = "sound";
+
+  $scope.applyFilter = function(sensorName){
+    $scope.image.activeFilter = sensorName;
+  }
 
 });
