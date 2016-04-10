@@ -9738,26 +9738,27 @@ html, body {
 .bar-header {
   z-index: 1000; }
 
-#editor, #editor .bar-header {
+#editor {
   background: #25272a; }
 
-#editor .bar-header .back {
-  color: white; }
-  #editor .bar-header .back:before {
-    padding-right: 20px; }
+#editor .bar-header, #share .bar-header {
+  background: #25272a; }
+  #editor .bar-header .back, #share .bar-header .back {
+    color: white; }
+    #editor .bar-header .back:before, #share .bar-header .back:before {
+      padding-right: 20px; }
+  #editor .bar-header .next, #share .bar-header .next {
+    color: #4090db; }
 
-#editor .bar-header .next {
-  color: #4090db; }
-
-#editor .main.image-container {
+.main.image-container {
   height: 100vw; }
 
-#editor .image-container {
+.image-container {
   width: 100vw;
   background-size: cover;
   background-position: center center;
   position: relative; }
-  #editor .image-container .filter {
+  .image-container .filter {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -9765,22 +9766,22 @@ html, body {
     bottom: 0;
     display: none;
     overflow: hidden; }
-    #editor .image-container .filter.selected {
+    .image-container .filter.selected {
       display: block; }
-    #editor .image-container .filter.co {
+    .image-container .filter.co {
       background: url("../img/co3.png");
       background-size: 40%;
       background-repeat: repeat; }
-    #editor .image-container .filter.humidity {
+    .image-container .filter.humidity {
       background: url("../img/humidity-1.png");
       background-size: cover;
       background-repeat: repeat;
       opacity: .9; }
 
-#editor #filters .image-container .filter {
+#filters .image-container .filter {
   display: block; }
 
-#editor #controls {
+#controls {
   background: #161819;
   height: 220px;
   width: 100vw;
@@ -9788,42 +9789,43 @@ html, body {
   position: absolute;
   bottom: 0;
   padding-left: 1%; }
-  #editor #controls #filters {
-    height: 50px;
-    padding: 0;
-    margin: 0; }
-    #editor #controls #filters li {
-      width: 24%;
-      display: inline-block;
-      vertical-align: top;
-      margin: 0;
-      padding: 30px 10px 12px 10px;
-      text-align: center;
-      text-transform: uppercase; }
-      #editor #controls #filters li.selected {
-        border-bottom: 2px solid #4090db; }
-      #editor #controls #filters li .preview {
-        width: 65px;
-        height: 65px;
-        border-radius: 3px;
-        margin: 0 auto 10px auto;
-        overflow: hidden;
-        position: relative;
-        margin: 0 auto 10px auto; }
-        #editor #controls #filters li .preview .filter {
-          height: 65px; }
-      #editor #controls #filters li icon {
-        display: block;
-        font-size: 1.2em; }
-        #editor #controls #filters li icon.xl {
-          font-size: 1.6em; }
-      #editor #controls #filters li .reading {
-        color: #9fc7ed;
-        font-weight: bold;
-        font-size: 1.3em; }
-      #editor #controls #filters li .unit {
-        font-size: .8em;
-        color: #4090db; }
+
+#filters, #readings {
+  padding: 0;
+  margin: 0; }
+  #filters li, #readings li {
+    width: 24%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 30px 10px 12px 10px;
+    text-align: center;
+    text-transform: uppercase; }
+    #filters li.selected, #readings li.selected {
+      border-bottom: 2px solid #4090db; }
+    #filters li .preview, #readings li .preview {
+      width: 65px;
+      height: 65px;
+      border-radius: 3px;
+      margin: 0 auto 10px auto;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto 10px auto; }
+      #filters li .preview .filter, #readings li .preview .filter {
+        height: 65px; }
+    #filters li icon, #readings li icon {
+      display: block;
+      font-size: 1.2em; }
+      #filters li icon.xl, #readings li icon.xl {
+        font-size: 1.6em; }
+    #filters li .reading, #readings li .reading {
+      color: #9fc7ed;
+      font-weight: bold;
+      font-size: 1.3em;
+      display: block; }
+    #filters li .unit, #readings li .unit {
+      font-size: .8em;
+      color: #4090db; }
 
 .sound #sound-bars {
   position: absolute;
@@ -9861,76 +9863,112 @@ html, body {
 
 .sound .sound-bar:nth-child(1) {
   left: 6%;
-  animation-duration: 447ms; }
+  animation-duration: 414ms; }
 
 .sound .sound-bar:nth-child(2) {
   left: 12%;
-  animation-duration: 394ms; }
+  animation-duration: 402ms; }
 
 .sound .sound-bar:nth-child(3) {
   left: 18%;
-  animation-duration: 476ms; }
+  animation-duration: 382ms; }
 
 .sound .sound-bar:nth-child(4) {
   left: 24%;
-  animation-duration: 460ms; }
+  animation-duration: 448ms; }
 
 .sound .sound-bar:nth-child(5) {
   left: 30%;
-  animation-duration: 431ms; }
+  animation-duration: 458ms; }
 
 .sound .sound-bar:nth-child(6) {
   left: 36%;
-  animation-duration: 422ms; }
+  animation-duration: 439ms; }
 
 .sound .sound-bar:nth-child(7) {
   left: 42%;
-  animation-duration: 454ms; }
+  animation-duration: 439ms; }
 
 .sound .sound-bar:nth-child(8) {
   left: 48%;
-  animation-duration: 424ms; }
+  animation-duration: 426ms; }
 
 .sound .sound-bar:nth-child(9) {
   left: 54%;
-  animation-duration: 382ms; }
+  animation-duration: 421ms; }
 
 .sound .sound-bar:nth-child(10) {
   left: 60%;
-  animation-duration: 383ms; }
+  animation-duration: 430ms; }
 
 .sound .sound-bar:nth-child(11) {
   left: 66%;
-  animation-duration: 393ms; }
+  animation-duration: 416ms; }
 
 .sound .sound-bar:nth-child(12) {
   left: 72%;
-  animation-duration: 383ms; }
+  animation-duration: 464ms; }
 
 .sound .sound-bar:nth-child(13) {
   left: 78%;
-  animation-duration: 414ms; }
+  animation-duration: 393ms; }
 
 .sound .sound-bar:nth-child(14) {
   left: 84%;
-  animation-duration: 409ms; }
+  animation-duration: 446ms; }
 
 .sound .sound-bar:nth-child(15) {
   left: 90%;
-  animation-duration: 433ms; }
+  animation-duration: 457ms; }
 
 .sound .sound-bar:nth-child(16) {
   left: 96%;
-  animation-duration: 473ms; }
+  animation-duration: 394ms; }
 
 .sound .sound-bar:nth-child(17) {
   left: 102%;
-  animation-duration: 387ms; }
+  animation-duration: 383ms; }
 
 .sound .sound-bar:nth-child(18) {
   left: 108%;
-  animation-duration: 445ms; }
+  animation-duration: 465ms; }
 
 .sound .sound-bar:nth-child(19) {
   left: 114%;
-  animation-duration: 391ms; }
+  animation-duration: 397ms; }
+
+#share {
+  background: white; }
+  #share .bar-header .next {
+    background: #4090db;
+    color: white;
+    border-radius: 0;
+    margin: -5px; }
+  #share .caption input {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 1.1em; }
+  #share .location {
+    padding: 15px 25px; }
+    #share .location icon {
+      font-size: 1.4em;
+      padding-right: 10px; }
+    #share .location span {
+      background: whitesmoke;
+      padding: 7px 14px;
+      border-radius: 3px; }
+  #share #readings li {
+    padding: 10px 10px 0 10px; }
+
+#gallery .image-container {
+  width: 100%; }
+
+.sharing {
+  text-align: center;
+  border-top: 1px solid grey;
+  border-top-style: inset; }
+  .sharing icon {
+    padding-right: 10px; }
+    .sharing icon.ion-social-facebook {
+      font-size: 1.2em; }

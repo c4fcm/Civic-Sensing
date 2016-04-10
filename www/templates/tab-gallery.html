@@ -1,0 +1,26 @@
+<ion-view view-title="Gallery">
+  <ion-content class="padding center">
+    <div id="gallery">
+      <div ng-repeat="image in images track by $index">
+        <div class="main image-container" style="background-image: url({{image.URI}});">
+    <!--  CO -->
+          <div class="filter co" ng-class="{selected: image.activeFilter == 'co'}" style="opacity: {{image.data.sensors[5].value / 200 }};">
+          </div>
+
+    <!--  Sound -->
+          <div class="filter sound" style="height: {{image.data.sensors[7].value / 150 * 100}}%;" ng-class="{selected: image.activeFilter == 'sound'}">
+            <div id="sound-bars">
+              <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
+            </div>
+          </div>
+
+    <!--  Temp -->
+          <div class="filter temp" ng-class="{selected: image.activeFilter == 'temp'}" style={{tempLevel}}></div>
+
+    <!--  Humidity -->
+          <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('./img/humidity-'{{humidityLevel}}'.png');"></div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

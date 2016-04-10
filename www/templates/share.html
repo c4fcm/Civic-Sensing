@@ -1,0 +1,75 @@
+<ion-view hide-nav-bar="true">
+  <ion-content id="share">
+    <div class="bar bar-header">
+      <button class="button button-icon ion-android-arrow-back back" ng-click="goBack()" > SHARE </button>
+      <button class="button button-icon ion-android-done next" ng-click="next()"></button>
+    </div>
+    <div class="main image-container" style="background-image: url({{image.URI}});">
+
+<!--  CO -->
+      <div class="filter co" ng-class="{selected: image.activeFilter == 'co'}" style="opacity: {{image.data.sensors[5].value / 200 }};">
+      </div>
+
+<!--  Sound -->
+      <div class="filter sound" style="height: {{image.data.sensors[7].value / 150 * 100}}%;" ng-class="{selected: image.activeFilter == 'sound'}">
+        <div id="sound-bars">
+          <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
+        </div>
+      </div>
+
+<!--  Temp -->
+      <div class="filter temp" ng-class="{selected: image.activeFilter == 'temp'}" style={{tempLevel}}></div>
+
+<!--  Humidity -->
+      <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('./img/humidity-'{{humidityLevel}}'.png');"></div>
+    </div> 
+
+    <div class="image-info">
+      <div class="caption">
+        <input ng-model="image.caption" placeholder="Write a caption..."></input>
+      </div>
+      <div class="location">
+        <icon class="ion-ios-location"></icon> <span>MIT Media Lab</span>
+      </div>
+      <div class="readings">
+        <ul id="readings">
+          <li>
+            <icon class="ion-ios-cloudy-outline xl"></icon>
+            <span>CO</span>
+            <span class="reading">{{image.data.sensors[5].value | number: 0}}</span>
+            <p class="unit">{{image.data.sensors[5].unit}}</p>
+          </li>
+
+          <li>
+            <icon class="icon ion-volume-high"></icon>
+            <span>Sound</span>
+            <span class="reading">{{image.data.sensors[7].value | number: 0}}</span>
+            <p class="unit">{{image.data.sensors[7].unit}}</p>
+          </li>
+
+          <li>
+            <icon class="icon ion-thermometer"></icon>
+            <span>Temp</span>
+            <span class="reading">{{image.data.sensors[3].value | number: 0}}</span>
+            <p class="unit">{{image.data.sensors[3].unit}}</p>
+          </li>
+
+          <li>
+            <icon class="icon ion-ios-rainy-outline xl"></icon>
+            <span>Humidity</span>
+            <span class="reading">{{image.data.sensors[2].value | number: 0}}</span>
+            <p class="unit">{{image.data.sensors[2].unit}}</p>
+          </li>     
+        </ul>
+      </div>
+
+      <div class="sharing row">
+        <div class="fb col"><icon class="ion-social-facebook"></icon> Facebook</div>
+        <div class="twitter col"><icon class="ion-social-twitter"></icon> Twitter</div>
+      </div>  
+    </div>
+
+  </ion-content>
+</ion-view>
+
+

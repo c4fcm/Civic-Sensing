@@ -33,12 +33,14 @@ html, body {
   z-index: 1000;
 }
 
-#editor, #editor .bar-header {
+#editor {
   background: #25272a;
 }
 
-#editor {
+#editor, #share {
   .bar-header {
+    background: #25272a;
+
     .back {
       color: white;
 
@@ -51,114 +53,114 @@ html, body {
       color: $accent-blue;
     }
   }
+}
 
-  .main.image-container {
-    height: 100vw;
-  }
+.main.image-container {
+  height: 100vw;
+}
 
-  .image-container {
-    width: 100vw;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
+.image-container {
+  width: 100vw;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
 
-    .filter {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-      bottom: 0;
-      display: none;
-      overflow: hidden;
+  .filter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    bottom: 0;
+    display: none;
+    overflow: hidden;
 
-      &.selected {
-        display: block;
-      }
-      
-      &.co {
-        background: url("../img/co3.png");
-        background-size: 40%;
-        background-repeat: repeat;
-      }
+    &.selected {
+      display: block;
+    }
+    
+    &.co {
+      background: url("../img/co3.png");
+      background-size: 40%;
+      background-repeat: repeat;
+    }
 
-      &.humidity {
-        background: url("../img/humidity-1.png");
-        background-size: cover;
-        background-repeat: repeat;
-        opacity: .9;
-      }
+    &.humidity {
+      background: url("../img/humidity-1.png");
+      background-size: cover;
+      background-repeat: repeat;
+      opacity: .9;
+    }
 
-      &.temp {
-      }
+    &.temp {
     }
   }
+}
 
-  #filters .image-container .filter {
-    display: block;
-  }
+#filters .image-container .filter {
+  display: block;
+}
 
 
-  #controls {
-    background: #161819;
-    height: 220px;
-    width: 100vw;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    padding-left: 1%;
+#controls {
+  background: #161819;
+  height: 220px;
+  width: 100vw;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  padding-left: 1%;
+}
 
-    #filters {
-      height: 50px;
-      padding: 0;
-      margin: 0;
+#filters, #readings {
+  padding: 0;
+  margin: 0;
 
-      li {
-        width: 24%;
-        display: inline-block;
-        vertical-align: top;
-        margin: 0;
-        padding: 30px 10px 12px 10px;
-        text-align: center;
-        text-transform: uppercase;
+  li {
+    width: 24%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 30px 10px 12px 10px;
+    text-align: center;
+    text-transform: uppercase;
 
-        &.selected {
-          border-bottom: 2px solid $accent-blue;
-        }
+    &.selected {
+      border-bottom: 2px solid $accent-blue;
+    }
 
-        .preview {
-          width: 65px;
-          height: 65px;
-          border-radius: 3px;
-          margin: 0 auto 10px auto;
-          overflow: hidden;
-          position: relative;
-          margin: 0 auto 10px auto;
+    .preview {
+      width: 65px;
+      height: 65px;
+      border-radius: 3px;
+      margin: 0 auto 10px auto;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto 10px auto;
 
-          .filter {
-            height: 65px;
-          }
-        }
-
-        icon {
-          display: block;
-          font-size: 1.2em;
-
-          &.xl {
-            font-size: 1.6em;
-          }
-        }
-
-        .reading {
-          color: $accent-light;
-          font-weight: bold;
-          font-size: 1.3em;
-        }
-
-        .unit {
-          font-size: .8em;
-          color: $accent-blue;
-        }
+      .filter {
+        height: 65px;
       }
+    }
+
+    icon {
+      display: block;
+      font-size: 1.2em;
+
+      &.xl {
+        font-size: 1.6em;
+      }
+    }
+
+    .reading {
+      color: $accent-light;
+      font-weight: bold;
+      font-size: 1.3em;
+      display: block;
+    }
+
+    .unit {
+      font-size: .8em;
+      color: $accent-blue;
     }
   }
 }
@@ -213,6 +215,62 @@ html, body {
     .sound-bar:nth-child(#{$i}) {
       left: #{$i * 5 + $i}%;
       animation-duration: #{380 + random(100)}ms;
+    }
+  }
+}
+
+#share {
+  background: white;
+
+  .bar-header .next {
+    background: $accent-blue;
+    color: white;
+    border-radius: 0;
+    margin: -5px;
+  }
+
+  .caption input {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 1.1em;
+  }
+
+  .location {
+    padding: 15px 25px;
+    icon {
+      font-size: 1.4em;
+      padding-right: 10px;
+    }
+
+    span {
+      background: whitesmoke;
+      padding: 7px 14px;
+      border-radius: 3px;
+    }
+  }
+
+  #readings li {
+    padding: 10px 10px 0 10px;
+  }
+}
+
+#gallery {
+  .image-container {
+    width: 100%;
+  }
+}
+
+.sharing {
+  text-align: center;
+  border-top: 1px solid grey;
+  border-top-style: inset;
+
+  icon {
+    padding-right: 10px;
+
+    &.ion-social-facebook {
+      font-size: 1.2em;
     }
   }
 }

@@ -69,12 +69,12 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       }
     })
 
-  .state('tab.images', {
-    url: '/images',
+  .state('tab.gallery', {
+    url: '/gallery',
     views: {
-      'tab-images': {
-        templateUrl: 'templates/tab-images.html',
-        controller: 'ImagesCtrl'
+      'tab-gallery': {
+        templateUrl: 'templates/tab-gallery.html',
+        controller: 'GalleryCtrl'
       }
     }
   })
@@ -84,9 +84,17 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
     cache: false,
     templateUrl: 'templates/edit.html',
     controller: 'EditCtrl'
-  });
+  })
+
+  .state('share', {
+    url: '/share',
+    cache: false,
+    templateUrl: 'templates/share.html',
+    controller: 'ShareCtrl'
+  });;
+
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/edit');
+  $urlRouterProvider.otherwise('home');
 
 });

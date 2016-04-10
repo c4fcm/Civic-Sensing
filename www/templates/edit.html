@@ -2,7 +2,7 @@
   <ion-content id="editor">
     <div class="bar bar-header">
       <button class="button button-icon ion-android-arrow-back back"> EDIT</button>
-      <button class="button button-icon ion-android-arrow-forward next"></button>
+      <button class="button button-icon ion-android-arrow-forward next" ng-click="shareImage()"></button>
     </div>
     <div class="main image-container" style="background-image: url({{image.URI}});">
 
@@ -21,7 +21,7 @@
       <div class="filter temp" ng-class="{selected: image.activeFilter == 'temp'}" style={{tempLevel}}></div>
 
 <!--  Humidity -->
-      <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('../img/humidity-{{humidityLevel}}.png');"></div>
+      <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('./img/humidity-'{{humidityLevel}}'.png');"></div>
     </div>
 
     <div id="controls">
@@ -32,8 +32,8 @@
           <div class="preview image-container" style="background-image: url({{image.URI}});">
             <div class="filter co" ></div>
           </div>
-          <span>CO</span>
           <icon class="ion-ios-cloudy-outline xl"></icon>
+          <span>CO</span>
           <span class="reading">{{image.data.sensors[5].value | number: 0}}</span>
           <p class="unit">{{image.data.sensors[5].unit}}</p>
         </li>
@@ -45,8 +45,8 @@
               <div class="sound-bar" ng-repeat="i in soundBars track by $index"></div>
             </div>
           </div>
-          <span>Sound</span>
           <icon class="icon ion-volume-high"></icon>
+          <span>Sound</span>
           <span class="reading">{{image.data.sensors[7].value | number: 0}}</span>
           <p class="unit">{{image.data.sensors[7].unit}}</p>
         </li>
@@ -56,8 +56,8 @@
           <div class="preview image-container" style="background-image: url({{image.URI}});">
             <div class="filter temp" style={{tempLevel}}></div>
           </div>
-          <span>Temp</span>
           <icon class="icon ion-thermometer"></icon>
+          <span>Temp</span>
           <span class="reading">{{image.data.sensors[3].value | number: 0}}</span>
           <p class="unit">{{image.data.sensors[3].unit}}</p>
         </li>
@@ -67,8 +67,8 @@
           <div class="preview image-container" style="background-image: url({{image.URI}});">
             <div class="filter humidity"></div>
           </div>
-          <span>Humidity</span>
           <icon class="icon ion-ios-rainy-outline xl"></icon>
+          <span>Humidity</span>
           <span class="reading">{{image.data.sensors[2].value | number: 0}}</span>
           <p class="unit">{{image.data.sensors[2].unit}}</p>
         </li>     

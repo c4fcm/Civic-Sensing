@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ImagesCtrl', function($scope, Gallery, $filter) {
+.controller('GalleryCtrl', function($scope, Gallery, $filter) {
   $scope.images = Gallery.images.reverse();
   console.log($scope.images);
 
@@ -63,9 +63,9 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EditCtrl', function($scope, Gallery, $http){
+.controller('EditCtrl', function($scope, Gallery, $http, $state){
   $scope.soundBars = new Array(18);
-  $scope.image = Gallery.images[0]; // Change!
+  $scope.image = Gallery.currentImage; // Change!
 
   $scope.image.activeFilter = "sound";
 
@@ -102,10 +102,26 @@ angular.module('starter.controllers', [])
     }
 
     return "background-color:" + color + ";opacity:" + opacity + ";";
-  }
+  };
+
+  $scope.shareImage = function(){
+    Gallery.currentImage = image;
+    $state.go('share');
+  };
 
   $scope.humidityLevel = $scope.setHumidityLevel();
   $scope.tempLevel = $scope.setTempLevel();
-  console.log($scope.tempLevel);
+})
+
+.controller('ShareCtrl', function($scope, Gallery, $http, $state){
+  $scope.image = Gallery.currentImage; // Change!
+
+  $scope.goBack = function(){
+    $state.go('edit');
+  };
+
+  $scope.next = function(){
+    $state.go('tab.gallery');
+  }
 
 });
