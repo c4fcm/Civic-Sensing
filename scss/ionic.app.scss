@@ -53,22 +53,14 @@ html, body {
   }
 
   .main.image-container {
-    height: 400px;
+    height: 100vw;
   }
 
   .image-container {
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
+    width: 100vw;
+    background-size: cover;
+    background-position: center center;
     position: relative;
-
-    img {
-      height: 110%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-    }
 
     .filter {
       position: absolute;
@@ -90,14 +82,13 @@ html, body {
       }
 
       &.humidity {
-        background: url("../img/humidity.png");
+        background: url("../img/humidity-1.png");
         background-size: cover;
         background-repeat: repeat;
+        opacity: .9;
       }
 
       &.temp {
-        background: red;
-        opacity: .2;
       }
     }
   }
@@ -109,10 +100,12 @@ html, body {
 
   #controls {
     background: #161819;
-    margin-top: 50px;
-    height: 300px;
-    overflow: visible;
+    height: 220px;
+    width: 100vw;
     color: white;
+    position: absolute;
+    bottom: 0;
+    padding-left: 1%;
 
     #filters {
       height: 50px;

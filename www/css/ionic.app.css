@@ -9750,19 +9750,13 @@ html, body {
   color: #4090db; }
 
 #editor .main.image-container {
-  height: 400px; }
+  height: 100vw; }
 
 #editor .image-container {
-  width: 100%;
-  overflow: hidden;
-  margin: 0 auto;
+  width: 100vw;
+  background-size: cover;
+  background-position: center center;
   position: relative; }
-  #editor .image-container img {
-    height: 110%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto; }
   #editor .image-container .filter {
     position: absolute;
     width: 100%;
@@ -9778,22 +9772,22 @@ html, body {
       background-size: 40%;
       background-repeat: repeat; }
     #editor .image-container .filter.humidity {
-      background: url("../img/humidity.png");
+      background: url("../img/humidity-1.png");
       background-size: cover;
-      background-repeat: repeat; }
-    #editor .image-container .filter.temp {
-      background: red;
-      opacity: .2; }
+      background-repeat: repeat;
+      opacity: .9; }
 
 #editor #filters .image-container .filter {
   display: block; }
 
 #editor #controls {
   background: #161819;
-  margin-top: 50px;
-  height: 300px;
-  overflow: visible;
-  color: white; }
+  height: 220px;
+  width: 100vw;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  padding-left: 1%; }
   #editor #controls #filters {
     height: 50px;
     padding: 0;
@@ -9867,7 +9861,7 @@ html, body {
 
 .sound .sound-bar:nth-child(1) {
   left: 6%;
-  animation-duration: 466ms; }
+  animation-duration: 447ms; }
 
 .sound .sound-bar:nth-child(2) {
   left: 12%;
@@ -9875,68 +9869,68 @@ html, body {
 
 .sound .sound-bar:nth-child(3) {
   left: 18%;
-  animation-duration: 434ms; }
+  animation-duration: 476ms; }
 
 .sound .sound-bar:nth-child(4) {
   left: 24%;
-  animation-duration: 414ms; }
+  animation-duration: 460ms; }
 
 .sound .sound-bar:nth-child(5) {
   left: 30%;
-  animation-duration: 404ms; }
+  animation-duration: 431ms; }
 
 .sound .sound-bar:nth-child(6) {
   left: 36%;
-  animation-duration: 412ms; }
+  animation-duration: 422ms; }
 
 .sound .sound-bar:nth-child(7) {
   left: 42%;
-  animation-duration: 424ms; }
+  animation-duration: 454ms; }
 
 .sound .sound-bar:nth-child(8) {
   left: 48%;
-  animation-duration: 433ms; }
+  animation-duration: 424ms; }
 
 .sound .sound-bar:nth-child(9) {
   left: 54%;
-  animation-duration: 393ms; }
+  animation-duration: 382ms; }
 
 .sound .sound-bar:nth-child(10) {
   left: 60%;
-  animation-duration: 439ms; }
+  animation-duration: 383ms; }
 
 .sound .sound-bar:nth-child(11) {
   left: 66%;
-  animation-duration: 457ms; }
+  animation-duration: 393ms; }
 
 .sound .sound-bar:nth-child(12) {
   left: 72%;
-  animation-duration: 437ms; }
+  animation-duration: 383ms; }
 
 .sound .sound-bar:nth-child(13) {
   left: 78%;
-  animation-duration: 474ms; }
+  animation-duration: 414ms; }
 
 .sound .sound-bar:nth-child(14) {
   left: 84%;
-  animation-duration: 440ms; }
+  animation-duration: 409ms; }
 
 .sound .sound-bar:nth-child(15) {
   left: 90%;
-  animation-duration: 460ms; }
+  animation-duration: 433ms; }
 
 .sound .sound-bar:nth-child(16) {
   left: 96%;
-  animation-duration: 479ms; }
+  animation-duration: 473ms; }
 
 .sound .sound-bar:nth-child(17) {
   left: 102%;
-  animation-duration: 430ms; }
+  animation-duration: 387ms; }
 
 .sound .sound-bar:nth-child(18) {
   left: 108%;
-  animation-duration: 396ms; }
+  animation-duration: 445ms; }
 
 .sound .sound-bar:nth-child(19) {
   left: 114%;
-  animation-duration: 474ms; }
+  animation-duration: 391ms; }

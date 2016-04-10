@@ -71,6 +71,41 @@ angular.module('starter.controllers', [])
 
   $scope.applyFilter = function(sensorName){
     $scope.image.activeFilter = sensorName;
+  };
+
+  $scope.setHumidityLevel = function(){
+    var value = $scope.image.data.sensors[2].value;
+    if(value > 60){
+      return 1;
+    } else if(value > 40){
+      return 2;
+    } else {
+      return 3;
+    }
+  };
+
+  $scope.setTempLevel = function(){
+    var value = $scope.image.data.sensors[3].value,
+    color, opacity;
+
+    console.log(value);
+
+    if (value > 19){
+      color = "red";
+      opacity = value / 35 - .3;
+    } else if (value > 10){
+      color = "#0391db";
+      opacity = .2;
+    } else {
+      color = "#0391db";
+      opacity = .4;
+    }
+
+    return "background-color:" + color + ";opacity:" + opacity + ";";
   }
+
+  $scope.humidityLevel = $scope.setHumidityLevel();
+  $scope.tempLevel = $scope.setTempLevel();
+  console.log($scope.tempLevel);
 
 });
