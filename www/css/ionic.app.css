@@ -5037,7 +5037,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
 /* Allow parent element to have tabs-top */
 /* If you change this, change platform.scss as well */
-.tabs-top > .tabs,
+/*.tabs-top > .tabs,
 .tabs.tabs-top {
   top: 44px;
   padding-top: 0;
@@ -5048,7 +5048,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .tabs.tabs-top .tab-item.tab-item-active .badge,
   .tabs.tabs-top .tab-item.active .badge,
   .tabs.tabs-top .tab-item.activated .badge {
-    top: 4%; }
+    top: 4%; }*/
 
 .tabs-top ~ .bar-header {
   border-bottom-width: 0; }
@@ -9735,8 +9735,25 @@ a.button {
 html, body {
   font-family: 'Roboto', sans-serif; }
 
+.bar.branding {
+  background: #088da5;
+  padding: 12px;
+  text-align: center;
+  height: 50px; }
+
+.header-logo {
+  height: 28px;
+  width: auto;
+  margin: 0 auto; }
+
 .bar-header {
   z-index: 1000; }
+
+.center {
+  text-align: center; }
+
+#bottom-tabs .tabs {
+  bottom: 0; }
 
 #editor {
   background: #25272a; }
@@ -9750,11 +9767,9 @@ html, body {
   #editor .bar-header .next, #share .bar-header .next {
     color: #4090db; }
 
-.main.image-container {
-  height: 100vw; }
-
 .image-container {
   width: 100vw;
+  height: 100vw;
   background-size: cover;
   background-position: center center;
   position: relative; }
@@ -9818,14 +9833,18 @@ html, body {
       font-size: 1.2em; }
       #filters li icon.xl, #readings li icon.xl {
         font-size: 1.6em; }
-    #filters li .reading, #readings li .reading {
-      color: #9fc7ed;
-      font-weight: bold;
-      font-size: 1.3em;
-      display: block; }
-    #filters li .unit, #readings li .unit {
-      font-size: .8em;
-      color: #4090db; }
+    #filters li p, #readings li p {
+      margin-bottom: 0; }
+
+.reading {
+  color: #9fc7ed;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: block; }
+
+.unit {
+  font-size: .8em;
+  color: #4090db; }
 
 .sound #sound-bars {
   position: absolute;
@@ -9863,39 +9882,39 @@ html, body {
 
 .sound .sound-bar:nth-child(1) {
   left: 6%;
-  animation-duration: 414ms; }
+  animation-duration: 421ms; }
 
 .sound .sound-bar:nth-child(2) {
   left: 12%;
-  animation-duration: 402ms; }
+  animation-duration: 449ms; }
 
 .sound .sound-bar:nth-child(3) {
   left: 18%;
-  animation-duration: 382ms; }
+  animation-duration: 389ms; }
 
 .sound .sound-bar:nth-child(4) {
   left: 24%;
-  animation-duration: 448ms; }
+  animation-duration: 415ms; }
 
 .sound .sound-bar:nth-child(5) {
   left: 30%;
-  animation-duration: 458ms; }
+  animation-duration: 401ms; }
 
 .sound .sound-bar:nth-child(6) {
   left: 36%;
-  animation-duration: 439ms; }
+  animation-duration: 393ms; }
 
 .sound .sound-bar:nth-child(7) {
   left: 42%;
-  animation-duration: 439ms; }
+  animation-duration: 418ms; }
 
 .sound .sound-bar:nth-child(8) {
   left: 48%;
-  animation-duration: 426ms; }
+  animation-duration: 393ms; }
 
 .sound .sound-bar:nth-child(9) {
   left: 54%;
-  animation-duration: 421ms; }
+  animation-duration: 434ms; }
 
 .sound .sound-bar:nth-child(10) {
   left: 60%;
@@ -9903,31 +9922,31 @@ html, body {
 
 .sound .sound-bar:nth-child(11) {
   left: 66%;
-  animation-duration: 416ms; }
+  animation-duration: 429ms; }
 
 .sound .sound-bar:nth-child(12) {
   left: 72%;
-  animation-duration: 464ms; }
+  animation-duration: 459ms; }
 
 .sound .sound-bar:nth-child(13) {
   left: 78%;
-  animation-duration: 393ms; }
+  animation-duration: 471ms; }
 
 .sound .sound-bar:nth-child(14) {
   left: 84%;
-  animation-duration: 446ms; }
+  animation-duration: 425ms; }
 
 .sound .sound-bar:nth-child(15) {
   left: 90%;
-  animation-duration: 457ms; }
+  animation-duration: 477ms; }
 
 .sound .sound-bar:nth-child(16) {
   left: 96%;
-  animation-duration: 394ms; }
+  animation-duration: 385ms; }
 
 .sound .sound-bar:nth-child(17) {
   left: 102%;
-  animation-duration: 383ms; }
+  animation-duration: 455ms; }
 
 .sound .sound-bar:nth-child(18) {
   left: 108%;
@@ -9935,7 +9954,7 @@ html, body {
 
 .sound .sound-bar:nth-child(19) {
   left: 114%;
-  animation-duration: 397ms; }
+  animation-duration: 433ms; }
 
 #share {
   background: white; }
@@ -9961,9 +9980,6 @@ html, body {
   #share #readings li {
     padding: 10px 10px 0 10px; }
 
-#gallery .image-container {
-  width: 100%; }
-
 .sharing {
   text-align: center;
   border-top: 1px solid grey;
@@ -9972,3 +9988,22 @@ html, body {
     padding-right: 10px; }
     .sharing icon.ion-social-facebook {
       font-size: 1.2em; }
+
+#gallery {
+  background: whitesmoke;
+  padding-top: 45px; }
+
+.snapshot {
+  background: white;
+  padding: 20px;
+  margin: 20px 10px; }
+  .snapshot .image-container {
+    width: 100%;
+    height: 70vw; }
+  .snapshot .label {
+    font-size: .8em; }
+  .snapshot #readings li {
+    padding: 15px 4px 4px 4px; }
+  .snapshot .info {
+    color: grey;
+    font-size: .9em; }

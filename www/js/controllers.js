@@ -105,7 +105,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.shareImage = function(){
-    Gallery.currentImage = image;
+    Gallery.currentImage = $scope.image;
     $state.go('share');
   };
 
@@ -122,6 +122,31 @@ angular.module('starter.controllers', [])
 
   $scope.next = function(){
     $state.go('tab.gallery');
-  }
+  };
+
+  $scope.shareFB = function(){
+    var message = $scope.image.caption;
+    var image = $scope.image.URI;
+    var link = "http://civic.mit.edu";
+
+    var success = function(){
+      console.log("success");
+    };
+    var error = function(){
+      console.log("fail");
+    };
+
+    // window.plugins.socialsharing
+    //   .shareViaFacebook(message, image, link, success, error);
+
+    window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
+  };
+
+  $scope.shareTwitter = function(){
+    var message = "Testing share";
+
+    window.plugins.socialsharing
+      .share(message);
+  };
 
 });

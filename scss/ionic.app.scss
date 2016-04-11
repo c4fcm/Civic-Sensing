@@ -29,9 +29,32 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.bar.branding {
+  background: #088da5;
+  padding: 12px;
+  text-align: center;
+  height: 50px;
+}
+
+.header-logo {
+  height: 28px;
+  width: auto;
+  margin: 0 auto;
+}
+
 .bar-header {
   z-index: 1000;
 }
+
+.center {
+  text-align: center;
+}
+
+#bottom-tabs .tabs {
+  bottom: 0;
+}
+
+////////////// Edit ///////////////////
 
 #editor {
   background: #25272a;
@@ -55,12 +78,9 @@ html, body {
   }
 }
 
-.main.image-container {
-  height: 100vw;
-}
-
 .image-container {
   width: 100vw;
+  height: 100vw;
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -151,18 +171,22 @@ html, body {
       }
     }
 
-    .reading {
-      color: $accent-light;
-      font-weight: bold;
-      font-size: 1.3em;
-      display: block;
-    }
-
-    .unit {
-      font-size: .8em;
-      color: $accent-blue;
+    p {
+      margin-bottom: 0;
     }
   }
+}
+
+.reading {
+  color: $accent-light;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: block;
+}
+
+.unit {
+  font-size: .8em;
+  color: $accent-blue;
 }
 
 .sound {
@@ -219,6 +243,8 @@ html, body {
   }
 }
 
+////////////// Sharing ///////////////////
+
 #share {
   background: white;
 
@@ -255,12 +281,6 @@ html, body {
   }
 }
 
-#gallery {
-  .image-container {
-    width: 100%;
-  }
-}
-
 .sharing {
   text-align: center;
   border-top: 1px solid grey;
@@ -274,3 +294,43 @@ html, body {
     }
   }
 }
+
+
+////////////// Gallery ///////////////////
+
+#gallery {
+  background: whitesmoke;
+  padding-top: 45px;
+}
+
+.snapshot {
+  background: white;
+  padding: 20px;
+  margin: 20px 10px;
+
+  .image-container {
+    width: 100%;
+    height: 70vw;
+  }
+
+  .label {
+    font-size: .8em;
+  }
+
+  #readings li {
+    padding: 15px 4px 4px 4px;
+  }
+
+  .info {
+    color: grey;
+    font-size: .9em;
+  }
+}
+
+
+
+
+
+
+
+
