@@ -21,17 +21,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
 
 $accent-blue: #4090db;
 $accent-light: #9fc7ed;
+$header: #50bdaf;
+// $header: #48aa9d;
 
 html, body {
   font-family: 'Roboto', sans-serif;
 }
 
 .bar.branding {
-  background: #088da5;
-  padding: 12px;
+  background: $header;
+  padding: 10px;
   text-align: center;
   height: 50px;
 }
@@ -52,6 +55,27 @@ html, body {
 
 #bottom-tabs .tabs {
   bottom: 0;
+}
+
+.tab-nav.tabs {
+  background: #25272a;
+
+  .tab-item-active {
+    background: #161819;
+    border-bottom: 4px solid $header;
+  }
+
+  .tab-item .icon {
+    padding-top: 5px;
+  }
+}
+
+ion-tabs.tabs-color-active-positive .tab-item {
+  color: #909090;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
+  color: #e6e6e6;
 }
 
 ////////////// Edit ///////////////////
@@ -300,7 +324,6 @@ html, body {
 
 #gallery {
   background: whitesmoke;
-  padding-top: 45px;
 }
 
 .snapshot {
@@ -326,6 +349,59 @@ html, body {
     font-size: .9em;
   }
 }
+
+////////////// Map ///////////////////
+
+#sensors {
+
+  .list {
+    margin-top: -5px;
+
+    icon {
+      padding-right: 10px;
+      font-size: 1.2em;
+      color: $header;
+    }
+
+    .item-content {
+      padding: 25px 25px 25px 30px;
+    }
+  }
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  background: url("../img/map.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+////////////// Home ///////////////////
+
+#home {
+  background: #fafafa;
+  text-align: center;
+  color: $header;
+
+  button {
+    width: 40vw;
+    font-size: 1.4em;
+  }
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  margin-top: 0px;
+}
+
+.tag-line {
+  margin: 80px auto 0 auto;
+  font-size: 2.5em;
+  font-family: 'Shadows Into Light', sans-serif;
+}
+
 
 
 

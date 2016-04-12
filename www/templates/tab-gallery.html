@@ -1,5 +1,8 @@
 <ion-view view-title="Gallery">
-  <ion-content class="padding center" id="gallery">
+  <div class="bar bar-header center branding">
+    <img src="./img/logo.png" class="header-logo">
+  </div>
+  <ion-content class="padding center has-header" id="gallery">
     <div ng-repeat="image in images track by $index" class="snapshot">
       <div class="main image-container" style="background-image: url({{image.URI}});">
   <!--  CO -->
@@ -14,10 +17,10 @@
         </div>
 
   <!--  Temp -->
-        <div class="filter temp" ng-class="{selected: image.activeFilter == 'temp'}" style={{tempLevel}}></div>
+        <div class="filter temp" ng-class="{selected: image.activeFilter == 'temp'}" style={{image.tempLevel}}></div>
 
   <!--  Humidity -->
-        <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('./img/humidity-'{{humidityLevel}}'.png');"></div>
+        <div class="filter humidity" ng-class="{selected: image.activeFilter == 'humidity'}" style="background-image: url('./img/humidity-'{{image.humidityLevel}}'.png');"></div>
       </div>
 
       <div class="readings">

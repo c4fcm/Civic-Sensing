@@ -1,9 +1,13 @@
 <ion-view view-title="Sensors">
+  <div class="bar bar-header center branding">
+    <img src="./img/logo.png" class="header-logo">
+  </div>
   <ion-content>
-    <ion-list>
+    <div class="map"></div>
+    <ion-list id="sensors">
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sensor in sensors" type="item-text-wrap" href="#/tab/sensors/{{sensor.id}}">
-        <icon class="ion-radio-waves">
-        <h2>{{sensor.name}}</h2>
+        <icon class="ion-radio-waves"></icon>
+        <span>{{sensor.name}}</span>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(sensor)">

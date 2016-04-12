@@ -21,10 +21,10 @@
         margin-top: $ios-statusbar-height;
       }
     }
-    .tabs-top > .tabs,
-    .tabs.tabs-top {
-      top: $bar-height + $ios-statusbar-height;
-    }
+    // .tabs-top > .tabs,
+    // .tabs.tabs-top {
+    //   top: $bar-height + $ios-statusbar-height;
+    // }
 
     .has-header,
     .bar-subheader {

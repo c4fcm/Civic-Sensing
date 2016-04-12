@@ -27,6 +27,7 @@ $dark:                            #444 !default;
   Modified icons to fit ionicon’s grid from original.
 */
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=2.0.1");
@@ -5037,7 +5038,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
 /* Allow parent element to have tabs-top */
 /* If you change this, change platform.scss as well */
-/*.tabs-top > .tabs,
+.tabs-top > .tabs,
 .tabs.tabs-top {
   top: 44px;
   padding-top: 0;
@@ -5048,7 +5049,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .tabs.tabs-top .tab-item.tab-item-active .badge,
   .tabs.tabs-top .tab-item.active .badge,
   .tabs.tabs-top .tab-item.activated .badge {
-    top: 4%; }*/
+    top: 4%; }
 
 .tabs-top ~ .bar-header {
   border-bottom-width: 0; }
@@ -9522,10 +9523,6 @@ a.button {
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
     margin-top: 20px; }
 
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs,
-.platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
-  top: 64px; }
-
 .platform-ios.platform-cordova:not(.fullscreen) .has-header,
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
   top: 64px; }
@@ -9736,8 +9733,8 @@ html, body {
   font-family: 'Roboto', sans-serif; }
 
 .bar.branding {
-  background: #088da5;
-  padding: 12px;
+  background: #50bdaf;
+  padding: 10px;
   text-align: center;
   height: 50px; }
 
@@ -9754,6 +9751,20 @@ html, body {
 
 #bottom-tabs .tabs {
   bottom: 0; }
+
+.tab-nav.tabs {
+  background: #25272a; }
+  .tab-nav.tabs .tab-item-active {
+    background: #161819;
+    border-bottom: 4px solid #50bdaf; }
+  .tab-nav.tabs .tab-item .icon {
+    padding-top: 5px; }
+
+ion-tabs.tabs-color-active-positive .tab-item {
+  color: #909090; }
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
+  color: #e6e6e6; }
 
 #editor {
   background: #25272a; }
@@ -9882,79 +9893,79 @@ html, body {
 
 .sound .sound-bar:nth-child(1) {
   left: 6%;
-  animation-duration: 421ms; }
+  animation-duration: 409ms; }
 
 .sound .sound-bar:nth-child(2) {
   left: 12%;
-  animation-duration: 449ms; }
+  animation-duration: 411ms; }
 
 .sound .sound-bar:nth-child(3) {
   left: 18%;
-  animation-duration: 389ms; }
+  animation-duration: 436ms; }
 
 .sound .sound-bar:nth-child(4) {
   left: 24%;
-  animation-duration: 415ms; }
+  animation-duration: 475ms; }
 
 .sound .sound-bar:nth-child(5) {
   left: 30%;
-  animation-duration: 401ms; }
+  animation-duration: 427ms; }
 
 .sound .sound-bar:nth-child(6) {
   left: 36%;
-  animation-duration: 393ms; }
+  animation-duration: 405ms; }
 
 .sound .sound-bar:nth-child(7) {
   left: 42%;
-  animation-duration: 418ms; }
+  animation-duration: 454ms; }
 
 .sound .sound-bar:nth-child(8) {
   left: 48%;
-  animation-duration: 393ms; }
+  animation-duration: 386ms; }
 
 .sound .sound-bar:nth-child(9) {
   left: 54%;
-  animation-duration: 434ms; }
+  animation-duration: 430ms; }
 
 .sound .sound-bar:nth-child(10) {
   left: 60%;
-  animation-duration: 430ms; }
+  animation-duration: 421ms; }
 
 .sound .sound-bar:nth-child(11) {
   left: 66%;
-  animation-duration: 429ms; }
+  animation-duration: 410ms; }
 
 .sound .sound-bar:nth-child(12) {
   left: 72%;
-  animation-duration: 459ms; }
+  animation-duration: 425ms; }
 
 .sound .sound-bar:nth-child(13) {
   left: 78%;
-  animation-duration: 471ms; }
+  animation-duration: 390ms; }
 
 .sound .sound-bar:nth-child(14) {
   left: 84%;
-  animation-duration: 425ms; }
+  animation-duration: 432ms; }
 
 .sound .sound-bar:nth-child(15) {
   left: 90%;
-  animation-duration: 477ms; }
+  animation-duration: 475ms; }
 
 .sound .sound-bar:nth-child(16) {
   left: 96%;
-  animation-duration: 385ms; }
+  animation-duration: 456ms; }
 
 .sound .sound-bar:nth-child(17) {
   left: 102%;
-  animation-duration: 455ms; }
+  animation-duration: 411ms; }
 
 .sound .sound-bar:nth-child(18) {
   left: 108%;
-  animation-duration: 465ms; }
+  animation-duration: 451ms; }
 
 .sound .sound-bar:nth-child(19) {
   left: 114%;
-  animation-duration: 433ms; }
+  animation-duration: 385ms; }
 
 #share {
   background: white; }
@@ -9990,8 +10001,7 @@ html, body {
       font-size: 1.2em; }
 
 #gallery {
-  background: whitesmoke;
-  padding-top: 45px; }
+  background: whitesmoke; }
 
 .snapshot {
   background: white;
@@ -10007,3 +10017,37 @@ html, body {
   .snapshot .info {
     color: grey;
     font-size: .9em; }
+
+#sensors .list {
+  margin-top: -5px; }
+  #sensors .list icon {
+    padding-right: 10px;
+    font-size: 1.2em;
+    color: #50bdaf; }
+  #sensors .list .item-content {
+    padding: 25px 25px 25px 30px; }
+
+.map {
+  width: 100%;
+  height: 300px;
+  background: url("../img/map.png");
+  background-size: cover;
+  background-position: center center; }
+
+#home {
+  background: #fafafa;
+  text-align: center;
+  color: #50bdaf; }
+  #home button {
+    width: 40vw;
+    font-size: 1.4em; }
+
+.home-image {
+  width: 100%;
+  height: auto;
+  margin-top: 0px; }
+
+.tag-line {
+  margin: 80px auto 0 auto;
+  font-size: 2.5em;
+  font-family: 'Shadows Into Light', sans-serif; }

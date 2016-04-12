@@ -6,10 +6,20 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var sensors = [{
-    id: 3146,
-    name: 'Civic Media Table'
-  }];
+  var sensors = [
+    {
+      id: 3146,
+      name: 'MIT Media Lab'
+    },
+    {
+      id: 3229,
+      name: 'Seaport'
+    },
+    {
+      id: 1684,
+      name: 'Chelsea'
+    }
+  ];
 
   return {
 
@@ -46,7 +56,7 @@ angular.module('starter.services', [])
 
   return {
     images: images,
-    currentImage: images[0], // Set to blank object
+    currentImage: {}, // Set to blank object
 
     addImage: function(image){
       this.images.push(image);
@@ -55,7 +65,37 @@ angular.module('starter.services', [])
 
     removeImage: function(image){
       this.images.splice(this.images.indexOf(image), 1);
+    },
+
+    setHumidityLevel: function(image){
+      var value = image.data.sensors[2].value;
+      if(value > 60){
+        return 1;
+      } else if(value > 40){
+        return 2;
+      } else {
+        return 3;
+      }
+    },
+
+    setTempLevel: function(image){
+      var value = image.data.sensors[3].value,
+      color, opacity;
+
+      console.log(value);
+
+      if (value > 19){
+        color = "red";
+        opacity = value / 35 - .3;
+      } else if (value > 10){
+        color = "#0391db";
+        opacity = .2;
+      } else {
+        color = "#0391db";
+        opacity = .4;
+      }
+
+      return "background-color:" + color + ";opacity:" + opacity + ";";
     }
   }
-
 });

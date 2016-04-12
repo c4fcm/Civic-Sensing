@@ -71,6 +71,7 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
 
   .state('tab.gallery', {
     url: '/gallery',
+    cache: false,
     views: {
       'tab-gallery': {
         templateUrl: 'templates/tab-gallery.html',

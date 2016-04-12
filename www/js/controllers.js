@@ -55,7 +55,7 @@ angular.module('starter.controllers', [])
 
 .controller('GalleryCtrl', function($scope, Gallery, $filter) {
   $scope.images = Gallery.images.reverse();
-  console.log($scope.images);
+  $scope.soundBars = new Array(18);
 
   $scope.remove = function(image){
     Gallery.removeImage(image);
@@ -73,48 +73,18 @@ angular.module('starter.controllers', [])
     $scope.image.activeFilter = sensorName;
   };
 
-  $scope.setHumidityLevel = function(){
-    var value = $scope.image.data.sensors[2].value;
-    if(value > 60){
-      return 1;
-    } else if(value > 40){
-      return 2;
-    } else {
-      return 3;
-    }
-  };
-
-  $scope.setTempLevel = function(){
-    var value = $scope.image.data.sensors[3].value,
-    color, opacity;
-
-    console.log(value);
-
-    if (value > 19){
-      color = "red";
-      opacity = value / 35 - .3;
-    } else if (value > 10){
-      color = "#0391db";
-      opacity = .2;
-    } else {
-      color = "#0391db";
-      opacity = .4;
-    }
-
-    return "background-color:" + color + ";opacity:" + opacity + ";";
-  };
-
   $scope.shareImage = function(){
     Gallery.currentImage = $scope.image;
     $state.go('share');
   };
 
-  $scope.humidityLevel = $scope.setHumidityLevel();
-  $scope.tempLevel = $scope.setTempLevel();
+  $scope.image.humidityLevel = Gallery.setHumidityLevel($scope.image);
+  $scope.image.tempLevel = Gallery.setTempLevel($scope.image);
 })
 
 .controller('ShareCtrl', function($scope, Gallery, $http, $state){
-  $scope.image = Gallery.currentImage; // Change!
+  $scope.image = Gallery.currentImage;
+  $scope.soundBars = new Array(18);
 
   $scope.goBack = function(){
     $state.go('edit');
