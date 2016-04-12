@@ -1,0 +1,5 @@
+angular.module('sosConfig', [])
+.constant('SOS_CONFIG', {
+  accessKey: "your access key",
+  aggregatorUrl: "aggregator url",
+});
